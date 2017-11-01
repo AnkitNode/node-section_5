@@ -10,22 +10,32 @@ app.get('/about',(req, res)=> {
   //res.send("<h1>Hello world....!<h1>");
   res.render("about.hbs",{
     pageTitle : 'About page',
-
     currentTime: new Date().getFullYear()
     });
 });
+
+app.get('/project',(req, res)=> {
+  //res.send("<h1>Hello world....!<h1>");
+  res.render("project.hbs",{
+    project : 'Added new project page',
+    currentTime: new Date().getFullYear()
+    });
+});
+
 app.get('/',(req,res)=> {
   res.render("home.hbs",{
-    pageTitle : 'About page',
+    pageTitle : 'Home page',
     WelcomeMessage: 'Welcome to my Web Page',
     currentTime: new Date().getFullYear()
     });
 });
+
 app.get('/error',(req,res)=> {
   res.send({
     ErrorMessage: "The error haas occured"
   });
 });
+
 app.listen(port, ()=>{
   console.log(`Server started at port ${port}`);
 });
